@@ -268,7 +268,10 @@ def initialize_browser():
         print("\n✓ Successfully logged in!")
         print(f"✓ Current URL: {browser.current_url}")
         
-        time.sleep(3)
+        time.sleep(1)
+
+        scroll_to = browser.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[3]/div/div/h1')
+        browser.execute_script("arguments[0].scrollIntoView();", scroll_to)
         
     except Exception as e:
         print(f"\n✗ Login error: {str(e)}")
