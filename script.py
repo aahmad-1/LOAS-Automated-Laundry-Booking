@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 import time
 import sys
 
-print("=== LOAS Laundry Booking Bot ===\n")
+print("\n=== LOAS Laundry Booking Bot ===")
 email = input("Enter your email: ")
 password = input("Enter your password: ")
 
@@ -258,12 +258,10 @@ def initialize_browser(browser, email, password):
         wait.until(EC.url_contains("/complexes/")) 
         
     
-        # wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[data-role='booking-timepicker']")))
-        # time.sleep(1)
-        # scroll_to = browser.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[3]/div/div/h1')
-        # browser.execute_script("arguments[0].scrollIntoView();", scroll_to)
-        # time.sleep(1)
-        # ye idk abt this yet lol we'll see later
+        time.sleep(2)
+        scroll_to = browser.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[3]/div/div/h1')
+        browser.execute_script("arguments[0].scrollIntoView();", scroll_to)
+        time.sleep(2)
         
         print("\n✓ Successfully logged in!")
         
@@ -289,22 +287,21 @@ def book_slots_for_date(browser, base_url, date_str, slots):
     wait = WebDriverWait(browser, 10)
     
     try:
-        # Wait for the scrollable container to appear (sign of page load success)
         scroll_container = wait.until(
             EC.presence_of_element_located((By.CLASS_NAME, "booking-table-container-scroll"))
         )
         print(f"Page loaded for {date_str}. Starting booking attempts...")
 
-        # Find the table body within the scroll container
+        # find the tb in the container
         table_body = scroll_container.find_element(By.TAG_NAME, "tbody")
         
-        # Find all time rows in the table body
+        # find all time rows in tb
         time_rows = table_body.find_elements(By.TAG_NAME, "tr")
         
         # Create a mapping of time string ('HH:MM') to the row element
         row_map = {}
         for row in time_rows:
-            # The first column of the row is the time (td:first-child)
+            # first column is time (td:first-child)
             try:
                 time_td = row.find_element(By.CSS_SELECTOR, "td:first-child")
                 time_str = time_td.text.strip()
