@@ -188,10 +188,6 @@ Contributions are welcome! To contribute:
 *   Add comments for complex logic.
 *   Update the README if you add new features or change existing functionality.
 
-## License Information
-
-This project does not currently have a specified license. All rights are reserved by the repository owner. Please contact the owner for permission before using, modifying, or distributing this code.
-
 ## Acknowledgments
 
 This project utilizes the following tools and libraries:
