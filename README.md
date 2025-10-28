@@ -29,7 +29,7 @@ C:\WebDriver\chromedriver-win64\chromedriver.exe
 
 To set this up:
 1.  Check your Chrome version: Navigate to `chrome://settings/help` in your browser.
-2.  Download the matching ChromeDriver version from [ChromeDriver Downloads](https://chromedriver.chromium.org/downloads) or [Chrome for Testing](https://googlechromelabs.github.io/chrome-for-testing/).
+2.  Download the matching ChromeDriver version from [Chrome for Testing](https://googlechromelabs.github.io/chrome-for-testing/).
 3.  Extract the downloaded archive.
 4.  Create the directory `C:\WebDriver\chromedriver-win64\` on your system.
 5.  Place the `chromedriver.exe` executable in this directory.
