@@ -29,10 +29,19 @@ C:\WebDriver\chromedriver-win64\chromedriver.exe
 
 To set this up:
 1.  Check your Chrome version: Navigate to `chrome://settings/help` in your browser.
-2.  Download the matching ChromeDriver version from [Chrome for Testing](https://googlechromelabs.github.io/chrome-for-testing/).
-3.  Extract the downloaded archive.
-4.  Create the directory `C:\WebDriver\chromedriver-win64\` on your system.
-5.  Place the `chromedriver.exe` executable in this directory.
+2.  Download the matching ChromeDriver version from [ChromeDriver Downloads](https://chromedriver.chromium.org/downloads) or [Chrome for Testing](https://googlechromelabs.github.io/chrome-for-testing/).
+3.  Extract the downloaded archive. The extracted folder will have this structure:
+    ```
+    chromedriver-win64/
+    ├── chromedriver-win64/
+    │   ├── chromedriver.exe
+    │   ├── LICENSE.chromedriver
+    │   └── THIRD_PARTY_NOTICES.chromedriver
+    ```
+4.  **Important:** Navigate into the nested `chromedriver-win64` folder to find the actual `chromedriver.exe` file.
+5.  Create the directory `C:\WebDriver\` on your C: drive if it doesn't exist.
+6.  Move or copy the entire inner `chromedriver-win64` folder (containing `chromedriver.exe`) to `C:\WebDriver\`.
+7.  Verify the final path is: `C:\WebDriver\chromedriver-win64\chromedriver.exe`
 
 **Alternative:** If you prefer a different location, modify line 226 in `script.py`:
 ```python
@@ -42,15 +51,15 @@ service = Service("YOUR_CUSTOM_PATH\\chromedriver.exe")
 ## Installation & Setup Instructions
 
 1.  **Clone the repository:**
-```bash
+    ```bash
     git clone https://github.com/aahmad-1/LOAS-Automated-Laundry-Booking.git
     cd LOAS-Automated-Laundry-Booking
-```
+    ```
 
 2.  **Install required dependencies:**
-```bash
+    ```bash
     pip install selenium
-```
+    ```
 
 3.  **Verify ChromeDriver installation:**
     Ensure `chromedriver.exe` is located at `C:\WebDriver\chromedriver-win64\chromedriver.exe` as described in the prerequisites section.
@@ -60,20 +69,20 @@ service = Service("YOUR_CUSTOM_PATH\\chromedriver.exe")
 ### Running the Script
 
 1.  **Execute the script:**
-```bash
+    ```bash
     python script.py
-```
+    ```
 
 2.  **Provide login credentials:**
-```
+    ```
     === LOAS Laundry Booking Bot ===
     Enter your email: your_email@example.com
     Enter your password: your_password
-```
+    ```
 
 3.  **Select machines and time slots:**
     The script will display a menu to select machines and add time slots:
-```
+    ```
     Select a machine to add time slots:
     a. Washing Machine 1
     b. Washing Machine 2
@@ -83,13 +92,13 @@ service = Service("YOUR_CUSTOM_PATH\\chromedriver.exe")
     f. Dryer 2
     g. Continue to date selection
     h. Clear all selections
-```
+    ```
 
 4.  **Enter time slots:**
     When you select a machine (options a-f), enter your desired time slots in 24-hour format:
-```
+    ```
     Time slots: 08:00, 10:30, 14:00
-```
+    ```
     Valid times range from 07:00 to 21:00 in 30-minute intervals (07:00, 07:30, 08:00, etc.).
 
 5.  **Configure booking dates:**
@@ -107,6 +116,7 @@ service = Service("YOUR_CUSTOM_PATH\\chromedriver.exe")
     *   Provide real-time status updates for each booking attempt
 
 ### Example Workflow
+
 ```
 === LOAS Laundry Booking Bot ===
 Enter your email: john.doe@example.com
